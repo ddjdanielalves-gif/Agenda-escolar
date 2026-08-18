@@ -23,14 +23,14 @@ class Classroom(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(100))
     school_id: Mapped[int] = mapped_column(ForeignKey("schools.id"))
-    teacher_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    teacher_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=True)
 
 class Student(Base):
     __tablename__ = "students"
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(160))
     classroom_id: Mapped[int] = mapped_column(ForeignKey("classrooms.id"))
-    guardian_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    guardian_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=True)
 
 class Lesson(Base):
     __tablename__ = "lessons"
@@ -45,13 +45,13 @@ class Lesson(Base):
 class Event(Base):
     __tablename__ = "events"
     id: Mapped[int] = mapped_column(primary_key=True)
-    classroom_id: Mapped[int | None] = mapped_column(ForeignKey("classrooms.id"), nullable=True)
+    classroom_id: Mapped[int] = mapped_column(ForeignKey("classrooms.id"), nullable=True)
     created_by: Mapped[int] = mapped_column(ForeignKey("users.id"))
     title: Mapped[str] = mapped_column(String(180))
     description: Mapped[str] = mapped_column(Text, default="")
     event_type: Mapped[str] = mapped_column(String(30), default="atividade")
     due_date: Mapped[datetime] = mapped_column(Date)
-    points: Mapped[float | None] = mapped_column(Float, nullable=True)
+    points: Mapped[float] = mapped_column(Float, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
 
 class Announcement(Base):
