@@ -13,7 +13,7 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: FRONTEND_ORIGIN
-        value: https://agenda-escolar-2gpi.onrender.com
+        value: https://agenda-escolar-1-55fo.onrender.com
   - type: web
     name: escola-conecta-web
     runtime: static
@@ -22,7 +22,7 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
-        value: https://agenda-escolar-2gpi.onrender.com
+        value: https://agenda-escolar-api-aym3.onrender.com
 databases:
   - name: escola-conecta-db
     databaseName: schoolhub
